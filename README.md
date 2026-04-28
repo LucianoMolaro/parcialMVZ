@@ -4,7 +4,7 @@ Aplicación Fullstack con **FastAPI + React** para la gestión de productos, cat
 
 ## Video de presentación
 
-> https://www.youtube.com/watch?v=u_qb21o4j_4&feature=youtu.be
+> https://youtu.be/oxUeHahu-ck
 
 ## Tecnologías
 
