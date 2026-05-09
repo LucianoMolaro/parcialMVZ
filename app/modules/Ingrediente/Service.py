@@ -3,7 +3,7 @@ from sqlmodel import Session, select
 from fastapi import HTTPException
 
 from app.core.UnitOfWork import UnitOfWork
-from app.modules.Ingrediente.IngredienteSchema import IngredienteCreate
+from app.modules.Ingrediente.Schema import IngredienteCreate
 from app.modules.models import Ingrediente
 
 

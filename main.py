@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.Database import create_db_and_tables
 from app.modules.Categoria.Router import router as categoria_router
-from app.modules.Ingrediente.ingredienteRouter import router as ingrediente_router
+from app.modules.Ingrediente.Router import router as ingrediente_router
 from app.modules.Producto.Router import router as producto_router
 
 

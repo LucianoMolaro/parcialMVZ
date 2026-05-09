@@ -3,8 +3,8 @@ from fastapi import APIRouter, Query, Depends
 from sqlmodel import Session
 
 from app.core.Database import get_session
-from app.modules.Ingrediente.IngredienteSchema import IngredienteCreate, IngredienteRead
-from app.modules.Ingrediente import ingredienteService
+from app.modules.Ingrediente.Schema import IngredienteCreate, IngredienteRead
+from app.modules.Ingrediente import Service
 
 router = APIRouter(prefix="/ingredientes", tags=["Ingredientes"])
 
@@ -16,24 +16,24 @@ def listar_ingredientes(
     offset: int = 0,
     limit: Annotated[int, Query(le=100)] = 10,
 ):
-    return ingredienteService.get_all(session, nombre, offset, limit)
+    return Service.get_all(session, nombre, offset, limit)
 
 
 @router.get("/{ingrediente_id}", response_model=IngredienteRead)
 def obtener_ingrediente(ingrediente_id: int, session: Session = Depends(get_session)):
-    return ingredienteService.get_by_id(session, ingrediente_id)
+    return Service.get_by_id(session, ingrediente_id)
 
 
 @router.post("/", response_model=IngredienteRead, status_code=201)
 def crear_ingrediente(ingrediente: IngredienteCreate, session: Session = Depends(get_session)):
-    return ingredienteService.create(session, ingrediente)
+    return Service.create(session, ingrediente)
 
 
 @router.put("/{ingrediente_id}", response_model=IngredienteRead)
 def editar_ingrediente(ingrediente_id: int, datos: IngredienteCreate, session: Session = Depends(get_session)):
-    return ingredienteService.update(session, ingrediente_id, datos)
+    return Service.update(session, ingrediente_id, datos)
 
 
 @router.delete("/{ingrediente_id}", status_code=204)
 def eliminar_ingrediente(ingrediente_id: int, session: Session = Depends(get_session)):
-    ingredienteService.delete(session, ingrediente_id)
+    Service.delete(session, ingrediente_id)

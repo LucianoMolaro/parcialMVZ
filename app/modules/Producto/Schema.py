@@ -1,7 +1,7 @@
 from typing import Optional, List
 from sqlmodel import SQLModel
 from app.modules.Categoria.Schema import CategoriaRead
-from app.modules.Ingrediente.IngredienteSchema import IngredienteRead
+from app.modules.Ingrediente.Schema import IngredienteRead
 
 
 class ProductoCreate(SQLModel):
